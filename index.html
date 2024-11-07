@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Webpage</title>
+
+    <style>
+        body {
+            background-image: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient background */
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between; 
+            background-color: rgba(89, 84, 92, 0.7);
+            padding: 10px;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+        .header-right {
+            display: flex;
+            gap: 15px; 
+        }
+        .header img {
+            height: 50px;
+            width: 50px;
+        }
+        .header a {
+            color: rgb(2, 1, 1);
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .header a:hover {
+            background-color: rgb(197, 114, 114);
+            color: rgb(0, 11, 49);
+        }
+        .header a.active {
+            background-color: rgb(24, 24, 17);
+            color: white;
+        }
+        .main-content {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <img src="https://wallpapercave.com/wp/CqB4blS.jpg" alt="Logo" class="logo">
+            <a href="index.html" class="logo-text">YUDOBSHERE</a>
+        </div>
+        <div class="header-right">
+            <a href="login.html" id="authLink">Log In</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="join.html">Join Us</a>
+            <a class="active" href="index.html">Home</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1>Welcome to My Webpage!</h1>
+        <p>YUDOBSHERE</p>
+    </div>
+
+    <script>
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        const authLink = document.getElementById('authLink');
+
+        if (isLoggedIn) {
+            authLink.textContent = 'Log Out';
+            authLink.href = '#';
+            authLink.onclick = function() {
+                localStorage.removeItem('isLoggedIn');
+                window.location.reload(); 
+            };
+        } else {
+            authLink.textContent = 'Log In';
+            authLink.href = 'login.html';
+        }
+    </script>
+</body>
+</html>
